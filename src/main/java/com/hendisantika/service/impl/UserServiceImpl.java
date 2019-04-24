@@ -45,7 +45,9 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     public List<User> findAll() {
         List<User> list = new ArrayList<>();
-        userDao.findAll().iterator().forEachRemaining(list::add);
+        for (User user : userDao.findAll()) {
+        	list.add(user);
+        }
         return list;
     }
 
